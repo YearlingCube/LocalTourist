@@ -12,6 +12,14 @@ namespace LocalTourist
 {
     public partial class HomePage : Form
     {
+        SearchChildForm Search = new SearchChildForm();
+        ToursChildForm Tours = new ToursChildForm();
+        RestaurantsChildForm Restaurants = new RestaurantsChildForm();
+        HotelsChildForm Hotels = new HotelsChildForm();
+        PlaysChildForm Plays = new PlaysChildForm();
+        SightSeeingChildForm SightSeeingg = new SightSeeingChildForm();
+        StoresChildForm Stores = new StoresChildForm();
+
         Form currentChildForm;
         public HomePage()
         {
@@ -35,12 +43,16 @@ namespace LocalTourist
         }
         private void ShowChildform(Form ChildForm)
         {
-            if (currentChildForm != null)
+            if (currentChildForm == ChildForm)
             {
-                currentChildForm.Close();
+                currentChildForm.Hide();
                 currentChildForm = null;
-            } else
+                return;
+            }
+            else if(currentChildForm != null)
             {
+                currentChildForm.Hide();
+            }
                 currentChildForm = ChildForm;
                 ChildForm.TopLevel = false;
                 ChildForm.FormBorderStyle = FormBorderStyle.None;
@@ -50,14 +62,9 @@ namespace LocalTourist
                 ChildForm.Size = MainPanel.Size;
                 ChildForm.BringToFront();
                 ChildForm.Show();
-            }
+
         }
 
-        private void SearchMenuButton_Click(object sender, EventArgs e)
-        {
-            SearchChildForm Search = new SearchChildForm();
-            ShowChildform(Search);
-        }
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
@@ -69,18 +76,6 @@ namespace LocalTourist
         {
             Application.Exit();
         }
-
-        private void HomePage_Load(object sender, EventArgs e)
-        {
-            XButton.BackgroundImage = System.Drawing.Image.FromFile("C:/Users\\matho347\\source\\repos\\LocalTourist\\LocalTourist\\Resources\\CancelIcon.png");
-            MinMaxButton.BackgroundImage = System.Drawing.Image.FromFile("C:\\Users\\matho347\\source\\repos\\LocalTourist\\LocalTourist\\Resources\\RectangleIcon.png");
-        }
-        private void ToursMenuButton_Click(object sender, EventArgs e)
-        {
-            SearchChildForm Search = new SearchChildForm();
-            ShowChildform(Search);
-        }
-
         private void MinMaxButton_Click(object sender, EventArgs e)
         {
             if (WindowState==FormWindowState.Maximized)
@@ -128,5 +123,35 @@ namespace LocalTourist
         {
             mov = false;
         }
+        #region MenuButtons
+        private void SearchMenuButton_Click(object sender, EventArgs e)
+        {
+            ShowChildform(Search);
+        }
+        private void ToursMenuButton_Click(object sender, EventArgs e)
+        {
+            ShowChildform(Tours);
+        }
+        private void RestaurantsButton_Click(object sender, EventArgs e)
+        {
+            ShowChildform(Restaurants);
+        }
+        private void HotelsButton_Click(object sender, EventArgs e)
+        {
+            ShowChildform(Hotels);
+        }
+        private void StoresButton_Click(object sender, EventArgs e)
+        {
+            ShowChildform(Stores);
+        }
+        private void PlaysButton_Click(object sender, EventArgs e)
+        {
+            ShowChildform(Plays);
+        }
+        private void SightSeeing_Click(object sender, EventArgs e)
+        {
+            ShowChildform(SightSeeingg);
+        }
+        #endregion
     }
 }
