@@ -129,6 +129,7 @@
             this.SightSeeing.Text = "Sightseeing";
             this.SightSeeing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SightSeeing.UseVisualStyleBackColor = false;
+            this.SightSeeing.Click += new System.EventHandler(this.SightSeeing_Click);
             this.SightSeeing.MouseEnter += new System.EventHandler(this.Mouse_Hover);
             this.SightSeeing.MouseLeave += new System.EventHandler(this.Mouse_Leave);
             // 
@@ -148,6 +149,7 @@
             this.PlaysButton.Text = "Plays";
             this.PlaysButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PlaysButton.UseVisualStyleBackColor = false;
+            this.PlaysButton.Click += new System.EventHandler(this.PlaysButton_Click);
             this.PlaysButton.MouseEnter += new System.EventHandler(this.Mouse_Hover);
             this.PlaysButton.MouseLeave += new System.EventHandler(this.Mouse_Leave);
             // 
@@ -167,6 +169,7 @@
             this.StoresButton.Text = "Stores";
             this.StoresButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StoresButton.UseVisualStyleBackColor = false;
+            this.StoresButton.Click += new System.EventHandler(this.StoresButton_Click);
             this.StoresButton.MouseEnter += new System.EventHandler(this.Mouse_Hover);
             this.StoresButton.MouseLeave += new System.EventHandler(this.Mouse_Leave);
             // 
@@ -186,6 +189,7 @@
             this.HotelsButton.Text = "Hotels";
             this.HotelsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.HotelsButton.UseVisualStyleBackColor = false;
+            this.HotelsButton.Click += new System.EventHandler(this.HotelsButton_Click);
             this.HotelsButton.MouseEnter += new System.EventHandler(this.Mouse_Hover);
             this.HotelsButton.MouseLeave += new System.EventHandler(this.Mouse_Leave);
             // 
@@ -205,6 +209,7 @@
             this.RestaurantsButton.Text = "Restaurants";
             this.RestaurantsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RestaurantsButton.UseVisualStyleBackColor = false;
+            this.RestaurantsButton.Click += new System.EventHandler(this.RestaurantsButton_Click);
             this.RestaurantsButton.MouseEnter += new System.EventHandler(this.Mouse_Hover);
             this.RestaurantsButton.MouseLeave += new System.EventHandler(this.Mouse_Leave);
             // 
@@ -357,7 +362,6 @@
             this.Name = "HomePage";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Home";
-            this.Load += new System.EventHandler(this.HomePage_Load);
             this.NavigationPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
