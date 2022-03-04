@@ -16,7 +16,7 @@ namespace LocalTourist
         ToursChildForm Tours = new ToursChildForm();
         RestaurantsChildForm Restaurants = new RestaurantsChildForm();
         HotelsChildForm Hotels = new HotelsChildForm();
-        PlaysChildForm Plays = new PlaysChildForm();
+        PreviousButton Plays = new PreviousButton();
         SightSeeingChildForm SightSeeingg = new SightSeeingChildForm();
         StoresChildForm Stores = new StoresChildForm();
 
@@ -68,8 +68,11 @@ namespace LocalTourist
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
-            currentChildForm.Close();
-            currentChildForm = null;
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+                currentChildForm = null;
+            }
         }
 
         private void XButton_Click(object sender, EventArgs e)
@@ -93,35 +96,6 @@ namespace LocalTourist
         private void MinimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-        }
-        int Mx;
-        int My;
-        int Sw;
-        int Sh;
-
-        bool mov;
-
-        void SizerMouseDown(object sender, MouseEventArgs e)
-        {
-            mov = true;
-            My = MousePosition.Y;
-            Mx = MousePosition.X;
-            Sw = Width;
-            Sh = Height;
-        }
-
-        void SizerMouseMove(object sender, MouseEventArgs e)
-        {
-            if (mov == true)
-            {
-                Width = MousePosition.X - Mx + Sw;
-                Height = MousePosition.Y - My + Sh;
-            }
-        }
-
-        void SizerMouseUp(object sender, MouseEventArgs e)
-        {
-            mov = false;
         }
         #region MenuButtons
         private void SearchMenuButton_Click(object sender, EventArgs e)

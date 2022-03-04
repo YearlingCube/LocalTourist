@@ -16,5 +16,30 @@ namespace LocalTourist
         {
             InitializeComponent();
         }
+
+        private void storesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.storesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.tourismDataSet);
+
+        }
+
+        private void StoresChildForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'tourismDataSet.Stores' table. You can move, or remove it, as needed.
+            this.storesTableAdapter.Fill(this.tourismDataSet.Stores);
+
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            storesBindingSource.MoveNext();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            storesBindingSource.MovePrevious();
+        }
     }
 }

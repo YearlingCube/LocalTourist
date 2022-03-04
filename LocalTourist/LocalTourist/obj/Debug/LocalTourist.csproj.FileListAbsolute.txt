@@ -9,3 +9,13 @@ C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.
 C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.exe
 C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.pdb
 C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.SearchChildForm.resources
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.HotelsChildForm.resources
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\bin\Debug\TourismDataSet.Designer.cs
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\bin\Debug\TourismDataSet.xsc
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\bin\Debug\TourismDataSet.xsd
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\bin\Debug\TourismDataSet.xss
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.StoresChildForm.resources
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.RestaurantsChildForm.resources
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.PreviousButton.resources
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.SightSeeingChildForm.resources
+C:\Users\matho347\source\repos\LocalTourist\LocalTourist\obj\Debug\LocalTourist.ToursChildForm.resources

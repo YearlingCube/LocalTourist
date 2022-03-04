@@ -10,11 +10,36 @@ using System.Windows.Forms;
 
 namespace LocalTourist
 {
-    public partial class PlaysChildForm : Form
+    public partial class PreviousButton : Form
     {
-        public PlaysChildForm()
+        public PreviousButton()
         {
             InitializeComponent();
+        }
+
+        private void playsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.playsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.tourismDataSet);
+
+        }
+
+        private void PlaysChildForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'tourismDataSet.Plays' table. You can move, or remove it, as needed.
+            this.playsTableAdapter.Fill(this.tourismDataSet.Plays);
+
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            playsBindingSource.MoveNext();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            playsBindingSource.MovePrevious();
         }
     }
 }

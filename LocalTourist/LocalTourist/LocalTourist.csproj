@@ -94,6 +94,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TourismDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ToursChildForm.cs">
       <SubType>Form</SubType>
@@ -101,8 +102,17 @@
     <Compile Include="ToursChildForm.Designer.cs">
       <DependentUpon>ToursChildForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="HotelsChildForm.resx">
+      <DependentUpon>HotelsChildForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaysChildForm.resx">
+      <DependentUpon>PlaysChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurantsChildForm.resx">
+      <DependentUpon>RestaurantsChildForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchChildForm.resx">
       <DependentUpon>SearchChildForm.cs</DependentUpon>
@@ -117,6 +127,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SightSeeingChildForm.resx">
+      <DependentUpon>SightSeeingChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StoresChildForm.resx">
+      <DependentUpon>StoresChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToursChildForm.resx">
+      <DependentUpon>ToursChildForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,14 +147,17 @@
     </Compile>
     <None Include="TourismDataSet.xsc">
       <DependentUpon>TourismDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TourismDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>TourismDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TourismDataSet.xss">
       <DependentUpon>TourismDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -145,7 +167,7 @@
     <None Include="Resources\CancelIcon.png" />
     <Content Include="Resources\RectangleIcon.png" />
     <Content Include="Tourism.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup />
