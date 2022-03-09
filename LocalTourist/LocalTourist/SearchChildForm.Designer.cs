@@ -48,7 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.NameHintLabel = new System.Windows.Forms.Label();
             this.tourismDataSet = new LocalTourist.TourismDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
@@ -182,8 +181,6 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(132, 22);
             this.NameTextBox.TabIndex = 1;
-            this.NameTextBox.MouseLeave += new System.EventHandler(this.NameTextBox_MouseLeave);
-            this.NameTextBox.MouseHover += new System.EventHandler(this.NameTextBox_MouseHover);
             // 
             // StateTextBox
             // 
@@ -277,9 +274,9 @@
             this.label4.Location = new System.Drawing.Point(352, 76);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 16);
+            this.label4.Size = new System.Drawing.Size(49, 16);
             this.label4.TabIndex = 9;
-            this.label4.Text = "State";
+            this.label4.Text = "County";
             // 
             // label5
             // 
@@ -301,18 +298,6 @@
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
-            // NameHintLabel
-            // 
-            this.NameHintLabel.AutoSize = true;
-            this.NameHintLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NameHintLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameHintLabel.Location = new System.Drawing.Point(69, 144);
-            this.NameHintLabel.Name = "NameHintLabel";
-            this.NameHintLabel.Size = new System.Drawing.Size(356, 16);
-            this.NameHintLabel.TabIndex = 13;
-            this.NameHintLabel.Text = "(Leave Blank If You\'re Not Looking For a Specific Location)";
-            this.NameHintLabel.Visible = false;
             // 
             // tourismDataSet
             // 
@@ -629,22 +614,28 @@
             // CheckOnChildren
             // 
             this.CheckOnChildren.AutoSize = true;
-            this.CheckOnChildren.Location = new System.Drawing.Point(105, 404);
+            this.CheckOnChildren.Checked = true;
+            this.CheckOnChildren.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckOnChildren.Location = new System.Drawing.Point(301, 404);
             this.CheckOnChildren.Name = "CheckOnChildren";
             this.CheckOnChildren.Size = new System.Drawing.Size(64, 20);
             this.CheckOnChildren.TabIndex = 21;
             this.CheckOnChildren.Text = "On/Off";
             this.CheckOnChildren.UseVisualStyleBackColor = true;
+            this.CheckOnChildren.CheckedChanged += new System.EventHandler(this.CheckOnChildren_CheckedChanged);
             // 
             // CheckOnPets
             // 
             this.CheckOnPets.AutoSize = true;
-            this.CheckOnPets.Location = new System.Drawing.Point(105, 432);
+            this.CheckOnPets.Checked = true;
+            this.CheckOnPets.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckOnPets.Location = new System.Drawing.Point(279, 430);
             this.CheckOnPets.Name = "CheckOnPets";
             this.CheckOnPets.Size = new System.Drawing.Size(64, 20);
             this.CheckOnPets.TabIndex = 22;
             this.CheckOnPets.Text = "On/Off";
             this.CheckOnPets.UseVisualStyleBackColor = true;
+            this.CheckOnPets.CheckedChanged += new System.EventHandler(this.CheckOnPets_CheckedChanged);
             // 
             // SearchChildForm
             // 
@@ -657,7 +648,6 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.hotelsBindingNavigator);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.NameHintLabel);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -712,7 +702,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.Label NameHintLabel;
         private TourismDataSet tourismDataSet;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button PreviousButton;
