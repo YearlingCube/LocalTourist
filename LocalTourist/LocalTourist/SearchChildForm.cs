@@ -22,17 +22,17 @@ namespace LocalTourist
             {
                 var searchHotelResults =
                    from c in tourismDataSet.Hotels
-                   where c.Name.ToLower() == NameTextBox.Text.ToLower() || NameTextBox.Text.Length == 0
-                   where c.Location.ToLower() == StateTextBox.Text.ToLower() || StateTextBox.Text.Length == 0
-                   where c.Price == PriceSlider.Value || PriceSlider.Value == 0
-                   where c.Pets == PetsCheckBox.Checked || CheckOnPets.Checked == false
-                   where c.Children == ChildrenCheckBox.Checked || CheckOnChildren.Checked == false
-                   where c.TypeofAttraction.ToLower() == TOADropDown.SelectedItem.ToString().ToLower() || TOADropDown.SelectedItem == null
+                   where c.Name.ToLower().Contains(NameTextBox.Text.ToLower())
+                   where c.Location.ToLower().Contains(StateTextBox.Text.ToLower())
+                   where c.Price <= PriceSlider.Value 
+                   where c.Pets == PetsCheckBox.Checked
+                   where c.Children == ChildrenCheckBox.Checked
+                   where c.TypeofAttraction.ToLower() == TOADropDown.SelectedItem.ToString().ToLower()
                    select c;
                 var searchRestaurantsResults =
                    from c in tourismDataSet.Restaurants
-                   where c.Name.ToLower() == NameTextBox.Text.ToLower()
-                   where c.Location.ToLower() == StateTextBox.Text.ToLower()
+                   where c.Name.ToLower().Contains(NameTextBox.Text.ToLower())
+                   where c.Location.ToLower().Contains(StateTextBox.Text.ToLower())
                    where c.Price == PriceSlider.Value
                    where c.Pets == PetsCheckBox.Checked
                    where c.Children == ChildrenCheckBox.Checked
@@ -40,8 +40,8 @@ namespace LocalTourist
                    select c;
                 var searchPlaysResults =
                    from c in tourismDataSet.Plays
-                   where c.Name.ToLower() == NameTextBox.Text.ToLower()
-                   where c.Location.ToLower() == StateTextBox.Text.ToLower()
+                   where c.Name.ToLower().Contains(NameTextBox.Text.ToLower())
+                   where c.Location.ToLower().Contains(StateTextBox.Text.ToLower())
                    where c.Price == PriceSlider.Value
                    where c.Pets == PetsCheckBox.Checked
                    where c.Children == ChildrenCheckBox.Checked
@@ -49,8 +49,8 @@ namespace LocalTourist
                    select c;
                 var searchSightSeeingResults =
                    from c in tourismDataSet.SightSeeing
-                   where c.Name.ToLower() == NameTextBox.Text.ToLower()
-                   where c.Location.ToLower() == StateTextBox.Text.ToLower()
+                   where c.Name.ToLower().Contains(NameTextBox.Text.ToLower())
+                   where c.Location.ToLower().Contains(StateTextBox.Text.ToLower())
                    where c.Price == PriceSlider.Value
                    where c.Pets == PetsCheckBox.Checked
                    where c.Children == ChildrenCheckBox.Checked
@@ -58,8 +58,8 @@ namespace LocalTourist
                    select c;
                 var searchStoresResults =
                    from c in tourismDataSet.Stores
-                   where c.Name.ToLower() == NameTextBox.Text.ToLower()
-                   where c.Location.ToLower() == StateTextBox.Text.ToLower()
+                   where c.Name.ToLower().Contains(NameTextBox.Text.ToLower())
+                   where c.Location.ToLower().Contains(StateTextBox.Text.ToLower())
                    where c.Price == PriceSlider.Value
                    where c.Pets == PetsCheckBox.Checked
                    where c.Children == ChildrenCheckBox.Checked
@@ -67,8 +67,8 @@ namespace LocalTourist
                    select c;
                 var searchToursResults =
                    from c in tourismDataSet.Tours
-                   where c.Name.ToLower() == NameTextBox.Text.ToLower()
-                   where c.Location.ToLower() == StateTextBox.Text.ToLower()
+                   where c.Name.ToLower().Contains(NameTextBox.Text.ToLower())
+                   where c.Location.ToLower().Contains(StateTextBox.Text.ToLower())
                    where c.Price == PriceSlider.Value
                    where c.Pets == PetsCheckBox.Checked
                    where c.Children == ChildrenCheckBox.Checked
@@ -76,10 +76,10 @@ namespace LocalTourist
                    select c;
                 hotelsBindingSource.DataSource = searchHotelResults.AsDataView();
                 restaurantsBindingSource.DataSource = searchRestaurantsResults.AsDataView();
-                hotelsBindingSource.DataSource = searchHotelResults.AsDataView();
-                hotelsBindingSource.DataSource = searchHotelResults.AsDataView();
-                hotelsBindingSource.DataSource = searchHotelResults.AsDataView();
-                hotelsBindingSource.DataSource = searchHotelResults.AsDataView();
+                toursBindingSource.DataSource = searchToursResults.AsDataView();
+                storesBindingSource.DataSource = searchStoresResults.AsDataView();
+                playsBindingSource.DataSource = searchPlaysResults.AsDataView();
+                sightSeeingBindingSource.DataSource = searchSightSeeingResults.AsDataView();
                 foreach (TourismDataSet.HotelsRow items in searchHotelResults)
                 {
                     nameTextBox1.Text = items.Name;
@@ -144,18 +144,6 @@ namespace LocalTourist
         {
             textBox1.Text = PriceSlider.Value.ToString();
         }
-
-        private void NameTextBox_MouseHover(object sender, EventArgs e)
-        {
-            NameHintLabel.Visible = true;
-        }
-
-        private void NameTextBox_MouseLeave(object sender, EventArgs e)
-        {
-            NameHintLabel.Visible = false;
-
-        }
-
         private void SearchButton_Click(object sender, EventArgs e)
         {
             SearchDataBase();
@@ -217,6 +205,32 @@ namespace LocalTourist
                 PriceSlider.Value = textprice;
             else
                 PriceSlider.Value = PriceSlider.Maximum;
+        }
+
+        private void CheckOnChildren_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckOnChildren.Checked)
+            {
+                ChildrenCheckBox.Enabled = true;
+            }
+            else
+            {
+                ChildrenCheckBox.Checked = false;
+                ChildrenCheckBox.Enabled = false;
+            }
+        }
+
+        private void CheckOnPets_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckOnPets.Checked)
+            {
+                PetsCheckBox.Enabled = true;
+            }
+            else
+            {
+                PetsCheckBox.Checked = false;
+                PetsCheckBox.Enabled = false;
+            }
         }
     }
 }

@@ -70,7 +70,7 @@ namespace LocalTourist
         {
             if (currentChildForm != null)
             {
-                currentChildForm.Close();
+                currentChildForm.Hide();
                 currentChildForm = null;
             }
         }
